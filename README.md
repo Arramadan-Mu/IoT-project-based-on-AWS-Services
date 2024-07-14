@@ -26,3 +26,5 @@ This system demonstrates the powerful combination of IoT and cloud computing in 
 
 📢 **Callto Action:**
  I'm eager to connect with fellow tech enthusiasts, IoT experts, and anyone interested in smart agriculture. Feel free to reach out for collaborations, feedback, or just a tech chat!
+ ![Picture2](https://github.com/user-attachments/assets/916ea5b9-377c-44c1-8049-766d64049bd6)
+
