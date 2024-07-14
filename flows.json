@@ -1,0 +1,2370 @@
+[
+    {
+        "id": "2571cf6f5ab0307a",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e1a9c209688164c1",
+        "type": "tab",
+        "label": "DynamoDB Flow",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "221d678213c3b932",
+        "type": "tab",
+        "label": "Style",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8850e193.e1712",
+        "type": "subflow",
+        "name": "SaveChart",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 80,
+                "y": 140,
+                "wires": [
+                    {
+                        "id": "40784bb1.204934"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 820,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "a6525d2.cb354a",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "7cdc0cdfa409be34",
+        "type": "mqtt-broker",
+        "name": "Temp_Hu",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "62226ee247c5772d",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#101d7e",
+                "baseFont": "Courier,monospace",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#101d7e",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#192dc2",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#101d7e",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "Courier,monospace"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "a72b3085981df97f",
+        "type": "ui_group",
+        "name": "Temperature Values",
+        "tab": "a0855e9bd2eaef22",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "22b656b8351efaf2",
+        "type": "ui_group",
+        "name": "Error Control",
+        "tab": "72adb7a23d1c9d08",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f1a44ae016998a77",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "a0855e9bd2eaef22",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "a727f32410f14682",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "a0855e9bd2eaef22",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "72adb7a23d1c9d08",
+        "type": "ui_tab",
+        "name": "Control",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "a0855e9bd2eaef22",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "310c1abc013d2f48",
+        "type": "ui_link",
+        "name": "Link 3",
+        "icon": "open_in_browser",
+        "target": "newtab",
+        "order": 3
+    },
+    {
+        "id": "cc1ce728f05c76b3",
+        "type": "amazon config",
+        "name": "AWS",
+        "region": "eu-north-1",
+        "proxyRequired": false,
+        "proxy": ""
+    },
+    {
+        "id": "4f8138c115d0674c",
+        "type": "node-inst-server",
+        "name": "Temp",
+        "port": "65500",
+        "useHttps": true,
+        "keyPath": "/home/ubuntu/.node-red/server.key",
+        "certPath": "/home/ubuntu/.node-red/server.crt"
+    },
+    {
+        "id": "a0f72417.ea2838",
+        "type": "file",
+        "z": "8850e193.e1712",
+        "name": "backup",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 700,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "70a2db09.6ff354",
+        "type": "file in",
+        "z": "8850e193.e1712",
+        "name": "restore",
+        "filename": "",
+        "format": "utf8",
+        "sendError": true,
+        "x": 530,
+        "y": 120,
+        "wires": [
+            [
+                "a6525d2.cb354a"
+            ]
+        ]
+    },
+    {
+        "id": "922d4285.5f7e1",
+        "type": "json",
+        "z": "8850e193.e1712",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 530,
+        "y": 160,
+        "wires": [
+            [
+                "a0f72417.ea2838"
+            ]
+        ]
+    },
+    {
+        "id": "a6525d2.cb354a",
+        "type": "json",
+        "z": "8850e193.e1712",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 690,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "40784bb1.204934",
+        "type": "function",
+        "z": "8850e193.e1712",
+        "name": "LoadSave",
+        "func": "var strSafe=msg.topic;\nif(strSafe)\n{\n    msg.filename =\"/share/chart.save\";\n    var loaded=context.get(strSafe)||0;\n    \n    if(0===loaded||strSafe==\"restore\")\n    {\n        //node.warn(\"Loading chart\");\n        msg.payload=\"load\";\n        context.set(strSafe,1);\n    }\n    else\n    {\n        //node.warn(\"Writing chart\");\n        //node.warn(msg.payload);\n    }\n    return msg;\n \n}\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 230,
+        "y": 140,
+        "wires": [
+            [
+                "51fb3038.7afb6"
+            ]
+        ]
+    },
+    {
+        "id": "51fb3038.7afb6",
+        "type": "switch",
+        "z": "8850e193.e1712",
+        "name": "Load data",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "load",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [
+                "70a2db09.6ff354"
+            ],
+            [
+                "922d4285.5f7e1"
+            ]
+        ]
+    },
+    {
+        "id": "02bdf8b79406b915",
+        "type": "mqtt in",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "topic": "esp32/temperature",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "7cdc0cdfa409be34",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 620,
+        "wires": [
+            [
+                "52cfef6f4185b8a3",
+                "833f358876700284"
+            ]
+        ]
+    },
+    {
+        "id": "c8a10169abd92e72",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "Process Data",
+        "func": "var temperature = parseFloat(msg.payload); \nvar counter = flow.get(\"counter\");\n counter = counter+1\n\nmsg.Item = { \n        \"currentValue\": {\"N\": String(temperature)},\n        \"id\": {\"N\": String(counter)}\n        };\n        msg.TableName = \"Temperature\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 780,
+        "wires": [
+            [
+                "cb750f9918b87085"
+            ]
+        ]
+    },
+    {
+        "id": "c7abfb5efcd32551",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "Counter",
+        "func": "delete msg.payload.Items;\n\nif (msg.payload.Count>0){\n    msg.payload = msg.payload.Count;\n} else { msg.payload = 0}\n\ndelete msg.payload.ScannedCount;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 640,
+        "wires": [
+            [
+                "0de41cee772a2c75"
+            ]
+        ]
+    },
+    {
+        "id": "1f1c9e944b02cece",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "Correction Array",
+        "func": "var upperThreshold = flow.get(\"UpperTempThreshold\");\nvar lowerThreshold = flow.get(\"LowerTempThreshold\");\n\n// Set default values if they are not defined\nif (upperThreshold === undefined) {\n    upperThreshold = 50; // Default value is 50\n}\n\nif (lowerThreshold === undefined) {\n    lowerThreshold = 10; // Default value is 10\n}\nif (typeof msg.payload === 'string') {\n        let temperature = parseFloat(msg.payload);\n        if (temperature >= lowerThreshold && temperature <= upperThreshold)\n        {msg.result = msg.payload;\n        return msg;\n        }\n    } else {\n        msg.result = undefined;\n}\n\n\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 880,
+        "wires": [
+            [
+                "c8a10169abd92e72",
+                "0f1c30bb565258fb",
+                "f2bef69d5a1f5642",
+                "5e23ea057e70c5db"
+            ]
+        ]
+    },
+    {
+        "id": "25bf12bd7e48beae",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "Maximum Value",
+        "func": "msg.payload = msg.payload.Items;\ndelete msg.payload.Count;\ndelete msg.payload.ScannedCount;\n\nlet maxTemp = -Infinity;\n\nfor (let i = 0; i < msg.payload.length; i++) {   \n    let obj = msg.payload[i];\n    let temp = parseFloat(obj.currentValue.N);  \n            if (temp > maxTemp) {\n                maxTemp = temp;\n            }\n    \n}\n\nif (maxTemp === -Infinity) {\n    maxTemp = null; \n}\n\n// Create a new message with the maximum temperature\nmsg.payload = maxTemp;\n\n// Send the message to the next node\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "\n",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 560,
+        "wires": [
+            [
+                "d72273688c1a5ac6",
+                "cf9978835df6603d"
+            ]
+        ]
+    },
+    {
+        "id": "57813d41ef1bf249",
+        "type": "change",
+        "z": "e1a9c209688164c1",
+        "name": "flow_msg",
+        "rules": [
+            {
+                "t": "set",
+                "p": "UpperTempThreshold",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1560,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d3cd79dba452b515",
+        "type": "change",
+        "z": "e1a9c209688164c1",
+        "name": "flow_msg",
+        "rules": [
+            {
+                "t": "set",
+                "p": "LowerTempThreshold",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1560,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "42b44e71eb2b92d1",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "Minimum Value",
+        "func": "msg.payload = msg.payload.Items;\ndelete msg.payload.Count;\ndelete msg.payload.ScannedCount;\n\nlet minTemp = Infinity;\n\nfor (let i = 0; i < msg.payload.length; i++) {\n    let obj = msg.payload[i];\n    let temp = parseFloat(obj.currentValue.N);\n    if (temp < minTemp) {\n        minTemp = temp;\n    }\n\n}\n\nif (minTemp === -Infinity) {\n    minTemp = null;\n}\n\n// Create a new message with the maximum temperature\nmsg.payload = minTemp;\n\n// Send the message to the next node\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "\n",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 440,
+        "wires": [
+            [
+                "b3b5e9cb5ee82051",
+                "ae8687621b12c85f"
+            ]
+        ]
+    },
+    {
+        "id": "6f183281f0393343",
+        "type": "change",
+        "z": "e1a9c209688164c1",
+        "name": "flow_msg",
+        "rules": [
+            {
+                "t": "set",
+                "p": "notthreshold",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 160,
+        "wires": [
+            [
+                "981934db35c99e4c"
+            ]
+        ]
+    },
+    {
+        "id": "0f1c30bb565258fb",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "Email Notification",
+        "func": "var notify_threshold = flow.get(\"notthreshold\");\n\nlet temperature = parseFloat(msg.payload);\nif (temperature >= notify_threshold && flow.get(\"notification_control\")===true) {\n    temperature = msg.payload;\n    msg.payload = {\n        subject: \"Temperature Alert\",\n        body: \"This email is due to a notification of increased temperature. The temperature degree now is \" + temperature + \"°C.\"\n        };\n    return msg;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 940,
+        "wires": [
+            [
+                "5a061a69b2ba29a6",
+                "a4f43818.837c88"
+            ]
+        ]
+    },
+    {
+        "id": "981934db35c99e4c",
+        "type": "mqtt out",
+        "z": "e1a9c209688164c1",
+        "name": "notify threshold",
+        "topic": "esp32/put_t_threshould",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7cdc0cdfa409be34",
+        "x": 1000,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "5e23ea057e70c5db",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "Temperature Function Chart",
+        "func": "var notify_threshold = flow.get(\"notthreshold\");\n\nlet temperature = parseFloat(msg.payload);\n    msg.payload = temperature;\n    msg.result = msg.payload;\n    return msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 840,
+        "wires": [
+            [
+                "805d5639822d0937"
+            ]
+        ]
+    },
+    {
+        "id": "dd462b772c1a80d2",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "Generate Data",
+        "func": "var temperature = Number(flow.get(\"GetTemp\"));\nvar maxTemp = flow.get(\"MaxTemp\");\nvar minTemp = flow.get(\"MinTemp\");\nvar notifythreshold = flow.get(\"notthreshold\");\n\nvar humidity = Number(flow.get(\"GetHum\"));\nvar maxHum = flow.get(\"MaxHum\");\nvar minHum = flow.get(\"MinHum\");\nvar notifythresholdH = flow.get(\"notthresholdH\");\n\nif (flow.get(\"notification_control\")){\n    var ennot = \"The Notification has been activated\";\n} else {ennot = \"The Notification has been disactivated\";} \n\n\n\nmsg.payload = {\n    currentTemperature: temperature,\n    maximumTemperature: maxTemp,\n    minimumTemperature: minTemp,\n    notthreshold: notifythreshold,\n    currentHumidity: humidity,\n    maximumHumidity: maxHum,\n    minimumHumidity: minHum,\n    humidityThreshold: notifythresholdH,\n    ennot:ennot\n};\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "ea5b74ea2789b8a1"
+            ]
+        ]
+    },
+    {
+        "id": "8c0786d2c872ecdb",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "Get Specific Customer Info",
+        "func": "\nlet x = msg.Item.id.N\nlet counter = 58;\n\nmsg = {\n    TableName: \"Temperature\",\n    Key: {\n        \"id\": { \"N\": String(x) }  //put email you want to search here\n    }\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 780,
+        "wires": [
+            [
+                "4975c365767c260f"
+            ]
+        ]
+    },
+    {
+        "id": "513d05d5e59ba264",
+        "type": "change",
+        "z": "e1a9c209688164c1",
+        "name": "flow_GetItem",
+        "rules": [
+            {
+                "t": "set",
+                "p": "GetTemp",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1530,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "96f5ea1a88be7846",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "GetTemp_Flow",
+        "func": "delete msg.payload.Item.id\nmsg.payload = msg.payload.Item.currentValue.N\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1400,
+        "y": 780,
+        "wires": [
+            [
+                "513d05d5e59ba264",
+                "d7c0959198ef0595"
+            ]
+        ]
+    },
+    {
+        "id": "a7c8367a3c551596",
+        "type": "mqtt out",
+        "z": "e1a9c209688164c1",
+        "name": "SendNotify",
+        "topic": "esp32/notify",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7cdc0cdfa409be34",
+        "x": 1570,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "d7c0959198ef0595",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "function notify ESP32",
+        "func": "\nvar notify_threshold = flow.get(\"notthreshold\");\n\nlet temperature = parseFloat(msg.payload);\n\nif (temperature >= notify_threshold && flow.get(\"notification_control\")===true) {\n    msg.payload = 1;\n    return msg;\n} else{\n    msg.payload = 0;\n    return msg;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1540,
+        "y": 660,
+        "wires": [
+            [
+                "a7c8367a3c551596"
+            ]
+        ]
+    },
+    {
+        "id": "0de41cee772a2c75",
+        "type": "change",
+        "z": "e1a9c209688164c1",
+        "name": "flow_counter",
+        "rules": [
+            {
+                "t": "set",
+                "p": "counter",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "52cfef6f4185b8a3",
+        "type": "delay",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 200,
+        "y": 840,
+        "wires": [
+            [
+                "1f1c9e944b02cece"
+            ]
+        ]
+    },
+    {
+        "id": "7e2c87985103bf1d",
+        "type": "change",
+        "z": "e1a9c209688164c1",
+        "name": "Set flow.notification_control",
+        "rules": [
+            {
+                "t": "set",
+                "p": "notification_control",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ae8687621b12c85f",
+        "type": "change",
+        "z": "e1a9c209688164c1",
+        "name": "MinTemp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "MinTemp",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cf9978835df6603d",
+        "type": "change",
+        "z": "e1a9c209688164c1",
+        "name": "MaxTemp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "MaxTemp",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f3b57c75aca8d23a",
+        "type": "mqtt in",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "topic": "esp32/humidity",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "7cdc0cdfa409be34",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 320,
+        "y": 1395,
+        "wires": [
+            [
+                "6f4f1832bd24ea67",
+                "f50b352920b4cd18"
+            ]
+        ]
+    },
+    {
+        "id": "c073b47d33756eb4",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "Process Data",
+        "func": "var humidity = parseFloat(msg.payload); \nvar counter = flow.get(\"counterH\");\n counter = counter+1;\n\nmsg.Item = { \n        \"currentValue\": {\"N\": String(humidity)},\n        \"id\": {\"N\": String(counter)}\n        };\n        msg.TableName = \"Humidity\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1045,
+        "y": 1290,
+        "wires": [
+            [
+                "a8aa4bbdbd0d166c"
+            ]
+        ]
+    },
+    {
+        "id": "893f0d1085e049a0",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "Counter",
+        "func": "delete msg.payload.Items;\n\nif (msg.payload.Count>0){\n    msg.payload = msg.payload.Count;\n} else { msg.payload = 0}\n\ndelete msg.payload.ScannedCount;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 315,
+        "y": 1305,
+        "wires": [
+            [
+                "41815b91d16a9c29"
+            ]
+        ]
+    },
+    {
+        "id": "df346a842c212f8e",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "Correction Array",
+        "func": "var upperThreshold = flow.get(\"UpperHumThreshold\");\nvar lowerThreshold = flow.get(\"LowerHumThreshold\");\n\n// Set default values if they are not defined\nif (upperThreshold === undefined) {\n    upperThreshold = 40; // Default value is 50\n}\n\nif (lowerThreshold === undefined) {\n    lowerThreshold = 10; // Default value is 10\n}\nif (typeof msg.payload === 'string') {\n        let hum = parseFloat(msg.payload);\n        if (hum >= lowerThreshold && hum <= upperThreshold)\n        {msg.result = msg.payload;\n        return msg;\n        }\n    } else {\n        msg.result = undefined;\n}\n\n\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 785,
+        "y": 1290,
+        "wires": [
+            [
+                "c073b47d33756eb4",
+                "102a575d07e6e18a",
+                "8164e620507aaf7f",
+                "4dfc876891ce5c0a"
+            ]
+        ]
+    },
+    {
+        "id": "e60cd9b43d342e8c",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "Maximum Value",
+        "func": "msg.payload = msg.payload.Items;\ndelete msg.payload.Count;\ndelete msg.payload.ScannedCount;\n\nlet maxHum = -Infinity;\n\nfor (let i = 0; i < msg.payload.length; i++) {   \n    let obj = msg.payload[i];\n    let hum = parseFloat(obj.currentValue.N);  \n    if (hum > maxHum) {\n        maxHum = hum;\n            }\n    \n}\n\nif (maxHum === -Infinity) {\n    maxHum = null; \n}\n\nmsg.payload = maxHum;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "\n",
+        "finalize": "",
+        "libs": [],
+        "x": 325,
+        "y": 1275,
+        "wires": [
+            [
+                "de44f5cbe46cacdc",
+                "5aecb95d7b375e0a"
+            ]
+        ]
+    },
+    {
+        "id": "c86cba34b87691f2",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "Minimum Value",
+        "func": "msg.payload = msg.payload.Items;\ndelete msg.payload.Count;\ndelete msg.payload.ScannedCount;\n\nlet minHum = Infinity;\n\nfor (let i = 0; i < msg.payload.length; i++) {\n    let obj = msg.payload[i];\n    let hum = parseFloat(obj.currentValue.N);\n    if (hum < minHum) {\n        minHum = hum;\n    }\n\n}\n\nif (minHum === -Infinity) {\n    minHum = null;\n}\n\n// Create a new message with the maximum temperature\nmsg.payload = minHum;\n\n// Send the message to the next node\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "\n",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 1245,
+        "wires": [
+            [
+                "15e8daa48bc63da5",
+                "efd11171e32cd547"
+            ]
+        ]
+    },
+    {
+        "id": "102a575d07e6e18a",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "Email Notification",
+        "func": "var notify_thresholdH = flow.get(\"notthresholdH\");\n\nlet hum = parseFloat(msg.payload);\nif (hum >= notify_thresholdH && flow.get(\"notification_control\")===true) {\n    hum = msg.payload;\n    msg.payload = {\n        subject: \"Humidity Alert\",\n        body: \"This email is due to a notification of increased humidity percentage. The humidity degree now is \" + hum + \"%.\"\n        };\n    return msg;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 1380,
+        "wires": [
+            [
+                "59bc463f21bb6cde",
+                "631a8f027f0564ef"
+            ]
+        ]
+    },
+    {
+        "id": "4dfc876891ce5c0a",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "Temperature Function Chart",
+        "func": "var notify_threshold = flow.get(\"notthresholdH\");\n\nlet hum = parseFloat(msg.payload);\n    msg.payload = hum;\n    msg.result = msg.payload;\n    return msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 845,
+        "y": 1200,
+        "wires": [
+            [
+                "611d5ac8abbd10f9"
+            ]
+        ]
+    },
+    {
+        "id": "fc44c066fe58510a",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "Get Specific Customer Info",
+        "func": "let x = msg.Item.id.N\nmsg = {\n    TableName: \"Humidity\",\n    Key: {\n        \"id\": { \"N\": String(x) }  //put email you want to search here\n    }\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1065,
+        "y": 1335,
+        "wires": [
+            [
+                "639c6573846e26b2"
+            ]
+        ]
+    },
+    {
+        "id": "3ca71762cb968e34",
+        "type": "change",
+        "z": "e1a9c209688164c1",
+        "name": "flow_GetItem",
+        "rules": [
+            {
+                "t": "set",
+                "p": "GetHum",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1290,
+        "y": 1420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "554d07ede0569437",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "GetTemp_Flow",
+        "func": "delete msg.payload.Item.id\nmsg.payload = msg.payload.Item.currentValue.N\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1075,
+        "y": 1425,
+        "wires": [
+            [
+                "3ca71762cb968e34"
+            ]
+        ]
+    },
+    {
+        "id": "41815b91d16a9c29",
+        "type": "change",
+        "z": "e1a9c209688164c1",
+        "name": "flow_counter",
+        "rules": [
+            {
+                "t": "set",
+                "p": "counterH",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 1290,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6f4f1832bd24ea67",
+        "type": "delay",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 555,
+        "y": 1395,
+        "wires": [
+            [
+                "df346a842c212f8e"
+            ]
+        ]
+    },
+    {
+        "id": "efd11171e32cd547",
+        "type": "change",
+        "z": "e1a9c209688164c1",
+        "name": "MinTemp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "MinHum",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 1170,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5aecb95d7b375e0a",
+        "type": "change",
+        "z": "e1a9c209688164c1",
+        "name": "MaxTemp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "MaxHum",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 555,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a201320672a7e8d6",
+        "type": "change",
+        "z": "e1a9c209688164c1",
+        "name": "flow_msg",
+        "rules": [
+            {
+                "t": "set",
+                "p": "UpperHumThreshold",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1340,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1c22a9f6df43af5d",
+        "type": "change",
+        "z": "e1a9c209688164c1",
+        "name": "flow_msg",
+        "rules": [
+            {
+                "t": "set",
+                "p": "LowerHumThreshold",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1340,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fdc25ba346ca0c33",
+        "type": "change",
+        "z": "e1a9c209688164c1",
+        "name": "flow_msg",
+        "rules": [
+            {
+                "t": "set",
+                "p": "notthresholdH",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 240,
+        "wires": [
+            [
+                "d649bf0cdc2330fb"
+            ]
+        ]
+    },
+    {
+        "id": "d649bf0cdc2330fb",
+        "type": "mqtt out",
+        "z": "e1a9c209688164c1",
+        "name": "notify threshold",
+        "topic": "esp32/put_t_threshould",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7cdc0cdfa409be34",
+        "x": 1020,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "1fe763ca0a7b1b5d",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "function to set Hum threshold",
+        "func": "// Ensure msg.payload is an object\nif (typeof msg.payload === 'object' && msg.payload !== null) {\n    // Check if the payload contains 'value2'\n    if (msg.payload.value2) {\n        let value2 = msg.payload.value2;\n        node.log('Processing value2: ' + value2);\n        msg.payload = Number(value2);\n        \n        return msg;\n    } else {\n        return null;\n    }\n} else {\n    node.error(\"msg.payload is not an object\", msg);\n    return null;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 220,
+        "wires": [
+            [
+                "a905871177f6bd75"
+            ]
+        ]
+    },
+    {
+        "id": "026e0bc4b43aa346",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "function to set Temp threshold",
+        "func": "// Ensure msg.payload is an object\nif (typeof msg.payload === 'object' && msg.payload !== null) {\n    // Check if the payload contains 'value1'\n    if (msg.payload.value1) {\n        let value1 = msg.payload.value1;\n        node.log('Processing value2: ' + value1);\n        msg.payload = Number(value1);\n        \n        return msg;\n    } else {\n        return null;\n    }\n} else {\n    node.error(\"msg.payload is not an object\", msg);\n    return null;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 120,
+        "wires": [
+            [
+                "bd2098c81b93907c"
+            ]
+        ]
+    },
+    {
+        "id": "3112edb7774fd1b7",
+        "type": "function",
+        "z": "e1a9c209688164c1",
+        "name": "function to enable notification",
+        "func": "\nif (typeof msg.payload === 'object' && msg.payload !== null) {\n    if (msg.payload.switch===\"on\") {\n        msg.payload = true;\n        return msg;\n    } else {\n        msg.payload = false;\n        return msg;\n    }\n} else {\n    node.error(\"msg.payload is not an object\", msg);\n    return null;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 40,
+        "wires": [
+            [
+                "35a5bbf3193acab3"
+            ]
+        ]
+    },
+    {
+        "id": "cb750f9918b87085",
+        "type": "AWS DynamoDB",
+        "z": "e1a9c209688164c1",
+        "aws": "cc1ce728f05c76b3",
+        "operation": "PutItem",
+        "Statements": "",
+        "RequestItems": "",
+        "TableName": "Temperature",
+        "BackupName": "",
+        "GlobalTableName": "",
+        "ReplicationGroup": "",
+        "AttributeDefinitions": "",
+        "KeySchema": "",
+        "BackupArn": "",
+        "Key": "",
+        "ExportArn": "",
+        "Statement": "",
+        "TransactStatements": "",
+        "TableArn": "",
+        "S3Bucket": "",
+        "ResourceArn": "",
+        "Item": "",
+        "TargetTableName": "",
+        "Tags": "",
+        "TransactItems": "",
+        "TagKeys": "",
+        "PointInTimeRecoverySpecification": "",
+        "ContributorInsightsAction": "",
+        "ReplicaUpdates": "",
+        "TimeToLiveSpecification": "",
+        "name": "",
+        "x": 780,
+        "y": 780,
+        "wires": [
+            [
+                "8c0786d2c872ecdb"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "833f358876700284",
+        "type": "AWS DynamoDB",
+        "z": "e1a9c209688164c1",
+        "aws": "cc1ce728f05c76b3",
+        "operation": "Scan",
+        "Statements": "",
+        "RequestItems": "",
+        "TableName": "Temperature",
+        "BackupName": "",
+        "GlobalTableName": "",
+        "ReplicationGroup": "",
+        "AttributeDefinitions": "",
+        "KeySchema": "",
+        "BackupArn": "",
+        "Key": "",
+        "ExportArn": "",
+        "Statement": "",
+        "TransactStatements": "",
+        "TableArn": "",
+        "S3Bucket": "",
+        "ResourceArn": "",
+        "Item": "",
+        "TargetTableName": "",
+        "Tags": "",
+        "TransactItems": "",
+        "TagKeys": "",
+        "PointInTimeRecoverySpecification": "",
+        "ContributorInsightsAction": "",
+        "ReplicaUpdates": "",
+        "TimeToLiveSpecification": "",
+        "name": "",
+        "x": 310,
+        "y": 560,
+        "wires": [
+            [
+                "c7abfb5efcd32551",
+                "25bf12bd7e48beae",
+                "42b44e71eb2b92d1"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4975c365767c260f",
+        "type": "AWS DynamoDB",
+        "z": "e1a9c209688164c1",
+        "aws": "cc1ce728f05c76b3",
+        "operation": "GetItem",
+        "Statements": "",
+        "RequestItems": "",
+        "TableName": "",
+        "BackupName": "",
+        "GlobalTableName": "",
+        "ReplicationGroup": "",
+        "AttributeDefinitions": "",
+        "KeySchema": "",
+        "BackupArn": "",
+        "Key": "",
+        "ExportArn": "",
+        "Statement": "",
+        "TransactStatements": "",
+        "TableArn": "",
+        "S3Bucket": "",
+        "ResourceArn": "",
+        "Item": "",
+        "TargetTableName": "",
+        "Tags": "",
+        "TransactItems": "",
+        "TagKeys": "",
+        "PointInTimeRecoverySpecification": "",
+        "ContributorInsightsAction": "",
+        "ReplicaUpdates": "",
+        "TimeToLiveSpecification": "",
+        "name": "",
+        "x": 1260,
+        "y": 660,
+        "wires": [
+            [
+                "96f5ea1a88be7846"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a8aa4bbdbd0d166c",
+        "type": "AWS DynamoDB",
+        "z": "e1a9c209688164c1",
+        "aws": "cc1ce728f05c76b3",
+        "operation": "PutItem",
+        "Statements": "",
+        "RequestItems": "",
+        "TableName": "Humidity",
+        "BackupName": "",
+        "GlobalTableName": "",
+        "ReplicationGroup": "",
+        "AttributeDefinitions": "",
+        "KeySchema": "",
+        "BackupArn": "",
+        "Key": "",
+        "ExportArn": "",
+        "Statement": "",
+        "TransactStatements": "",
+        "TableArn": "",
+        "S3Bucket": "",
+        "ResourceArn": "",
+        "Item": "",
+        "TargetTableName": "",
+        "Tags": "",
+        "TransactItems": "",
+        "TagKeys": "",
+        "PointInTimeRecoverySpecification": "",
+        "ContributorInsightsAction": "",
+        "ReplicaUpdates": "",
+        "TimeToLiveSpecification": "",
+        "name": "",
+        "x": 1300,
+        "y": 1290,
+        "wires": [
+            [
+                "fc44c066fe58510a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f50b352920b4cd18",
+        "type": "AWS DynamoDB",
+        "z": "e1a9c209688164c1",
+        "aws": "cc1ce728f05c76b3",
+        "operation": "Scan",
+        "Statements": "",
+        "RequestItems": "",
+        "TableName": "Humidity",
+        "BackupName": "",
+        "GlobalTableName": "",
+        "ReplicationGroup": "",
+        "AttributeDefinitions": "",
+        "KeySchema": "",
+        "BackupArn": "",
+        "Key": "",
+        "ExportArn": "",
+        "Statement": "",
+        "TransactStatements": "",
+        "TableArn": "",
+        "S3Bucket": "",
+        "ResourceArn": "",
+        "Item": "",
+        "TargetTableName": "",
+        "Tags": "",
+        "TransactItems": "",
+        "TagKeys": "",
+        "PointInTimeRecoverySpecification": "",
+        "ContributorInsightsAction": "",
+        "ReplicaUpdates": "",
+        "TimeToLiveSpecification": "",
+        "name": "",
+        "x": 330,
+        "y": 1350,
+        "wires": [
+            [
+                "893f0d1085e049a0",
+                "e60cd9b43d342e8c",
+                "c86cba34b87691f2"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "639c6573846e26b2",
+        "type": "AWS DynamoDB",
+        "z": "e1a9c209688164c1",
+        "aws": "cc1ce728f05c76b3",
+        "operation": "GetItem",
+        "Statements": "",
+        "RequestItems": "",
+        "TableName": "",
+        "BackupName": "",
+        "GlobalTableName": "",
+        "ReplicationGroup": "",
+        "AttributeDefinitions": "",
+        "KeySchema": "",
+        "BackupArn": "",
+        "Key": "",
+        "ExportArn": "",
+        "Statement": "",
+        "TransactStatements": "",
+        "TableArn": "",
+        "S3Bucket": "",
+        "ResourceArn": "",
+        "Item": "",
+        "TargetTableName": "",
+        "Tags": "",
+        "TransactItems": "",
+        "TagKeys": "",
+        "PointInTimeRecoverySpecification": "",
+        "ContributorInsightsAction": "",
+        "ReplicaUpdates": "",
+        "TimeToLiveSpecification": "",
+        "name": "",
+        "x": 1055,
+        "y": 1380,
+        "wires": [
+            [
+                "554d07ede0569437"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "35a5bbf3193acab3",
+        "type": "ui_switch",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "label": "Enable Notifications",
+        "tooltip": "",
+        "group": "f1a44ae016998a77",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "notification_control",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 580,
+        "y": 40,
+        "wires": [
+            [
+                "7e2c87985103bf1d"
+            ]
+        ]
+    },
+    {
+        "id": "cf3ce2a12bf6fa1b",
+        "type": "ui_slider",
+        "z": "e1a9c209688164c1",
+        "name": "UpperThreshold",
+        "label": "UpperTempThreshold ",
+        "tooltip": "",
+        "group": "22b656b8351efaf2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "20",
+        "max": "60",
+        "step": 1,
+        "className": "",
+        "x": 1240,
+        "y": 340,
+        "wires": [
+            [
+                "e33ff6c50cdcd3d2",
+                "57813d41ef1bf249"
+            ]
+        ]
+    },
+    {
+        "id": "69d19f0d7a2cc5a3",
+        "type": "ui_slider",
+        "z": "e1a9c209688164c1",
+        "name": "LowerThreshold ",
+        "label": "LowerTempThreshold ",
+        "tooltip": "",
+        "group": "22b656b8351efaf2",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "1",
+        "max": "10",
+        "step": 1,
+        "className": "",
+        "x": 1240,
+        "y": 380,
+        "wires": [
+            [
+                "d3cd79dba452b515",
+                "fd35e0934da490cd"
+            ]
+        ]
+    },
+    {
+        "id": "bd2098c81b93907c",
+        "type": "ui_slider",
+        "z": "e1a9c209688164c1",
+        "name": "Notification Threshold",
+        "label": "Notification Threshold",
+        "tooltip": "",
+        "group": "a72b3085981df97f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "20",
+        "max": "40",
+        "step": "0.5",
+        "className": "notify",
+        "x": 600,
+        "y": 120,
+        "wires": [
+            [
+                "eee3413f7403779b",
+                "6f183281f0393343"
+            ]
+        ]
+    },
+    {
+        "id": "5834a14ebd431e48",
+        "type": "ui_slider",
+        "z": "e1a9c209688164c1",
+        "name": "UpperThreshold",
+        "label": "Upper Humidity Threshold ",
+        "tooltip": "",
+        "group": "22b656b8351efaf2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "20",
+        "max": "60",
+        "step": 1,
+        "className": "",
+        "x": 1160,
+        "y": 1160,
+        "wires": [
+            [
+                "a587df8a17d6d872",
+                "a201320672a7e8d6"
+            ]
+        ]
+    },
+    {
+        "id": "40bd89703549a8e2",
+        "type": "ui_slider",
+        "z": "e1a9c209688164c1",
+        "name": "LowerThreshold ",
+        "label": "Lower Humidity Threshold ",
+        "tooltip": "",
+        "group": "22b656b8351efaf2",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "1",
+        "max": "10",
+        "step": 1,
+        "className": "",
+        "x": 1160,
+        "y": 1200,
+        "wires": [
+            [
+                "1c22a9f6df43af5d",
+                "b11a3e1ab9f08608"
+            ]
+        ]
+    },
+    {
+        "id": "a905871177f6bd75",
+        "type": "ui_slider",
+        "z": "e1a9c209688164c1",
+        "name": "Notification Threshold",
+        "label": "Notification Threshold",
+        "tooltip": "",
+        "group": "a727f32410f14682",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "20",
+        "max": "40",
+        "step": "0.5",
+        "className": "notify",
+        "x": 580,
+        "y": 200,
+        "wires": [
+            [
+                "6b592ef1df82c9cf",
+                "fdc25ba346ca0c33"
+            ]
+        ]
+    },
+    {
+        "id": "b3b5e9cb5ee82051",
+        "type": "ui_text_input",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "label": "Minimum Value",
+        "tooltip": "",
+        "group": "a72b3085981df97f",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "payload",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 920,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d72273688c1a5ac6",
+        "type": "ui_text_input",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "label": "Maximum Value",
+        "tooltip": "",
+        "group": "a72b3085981df97f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "payload",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 900,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "15e8daa48bc63da5",
+        "type": "ui_text_input",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "label": "Minimum Value",
+        "tooltip": "",
+        "group": "a727f32410f14682",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "payload",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 335,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "de44f5cbe46cacdc",
+        "type": "ui_text_input",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "label": "Maximum Value",
+        "tooltip": "",
+        "group": "a727f32410f14682",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "payload",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 575,
+        "y": 1230,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f2bef69d5a1f5642",
+        "type": "ui_text",
+        "z": "e1a9c209688164c1",
+        "group": "a72b3085981df97f",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "The Current Temperature",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 790,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "8164e620507aaf7f",
+        "type": "ui_text",
+        "z": "e1a9c209688164c1",
+        "group": "a727f32410f14682",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "The Current Humidity Percentage ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 880,
+        "y": 1230,
+        "wires": []
+    },
+    {
+        "id": "e33ff6c50cdcd3d2",
+        "type": "ui_gauge",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "group": "22b656b8351efaf2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Upper Value",
+        "label": "C",
+        "format": "{{value}}",
+        "min": "20",
+        "max": "60",
+        "colors": [
+            "#008000",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1530,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "fd35e0934da490cd",
+        "type": "ui_gauge",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "group": "22b656b8351efaf2",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Lower Value",
+        "label": "C",
+        "format": "{{value}}",
+        "min": "1",
+        "max": "10",
+        "colors": [
+            "#000cb3",
+            "#00d6e6",
+            "#00ffaa"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1530,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "eee3413f7403779b",
+        "type": "ui_gauge",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "group": "a72b3085981df97f",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Notify Value",
+        "label": "C",
+        "format": "{{value}}",
+        "min": "20",
+        "max": "40",
+        "colors": [
+            "#008000",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": true,
+        "className": "",
+        "x": 830,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "a587df8a17d6d872",
+        "type": "ui_gauge",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "group": "22b656b8351efaf2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Upper Value",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "20",
+        "max": "60",
+        "colors": [
+            "#008000",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1310,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "b11a3e1ab9f08608",
+        "type": "ui_gauge",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "group": "22b656b8351efaf2",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Lower Value",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "1",
+        "max": "10",
+        "colors": [
+            "#000cb3",
+            "#00d6e6",
+            "#00ffaa"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1310,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "6b592ef1df82c9cf",
+        "type": "ui_gauge",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "group": "a727f32410f14682",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Notify Value",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "20",
+        "max": "40",
+        "colors": [
+            "#008000",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": true,
+        "className": "",
+        "x": 830,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "805d5639822d0937",
+        "type": "ui_chart",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "group": "a72b3085981df97f",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "label": "Temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1210,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "611d5ac8abbd10f9",
+        "type": "ui_chart",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "group": "a727f32410f14682",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "label": "Humidity",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 800,
+        "y": 1155,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5a061a69b2ba29a6",
+        "type": "ui_toast",
+        "z": "e1a9c209688164c1",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": true,
+        "className": "",
+        "topic": "A Notification Email has been sent",
+        "name": "",
+        "x": 1050,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "59bc463f21bb6cde",
+        "type": "ui_toast",
+        "z": "e1a9c209688164c1",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": true,
+        "className": "",
+        "topic": "A Notification Email has been sent",
+        "name": "",
+        "x": 790,
+        "y": 1335,
+        "wires": []
+    },
+    {
+        "id": "a4f43818.837c88",
+        "type": "e-mail",
+        "z": "e1a9c209688164c1",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": false,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "mohammed.alramadan.23@gmail.com",
+        "dname": "Email",
+        "x": 990,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "631a8f027f0564ef",
+        "type": "e-mail",
+        "z": "e1a9c209688164c1",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": false,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "mohammed.alramadan.23@gmail.com",
+        "dname": "Email",
+        "x": 765,
+        "y": 1425,
+        "wires": []
+    },
+    {
+        "id": "3d97f7497f3afa66",
+        "type": "http-inst-in",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "server": "4f8138c115d0674c",
+        "url": "/get",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 320,
+        "wires": [
+            [
+                "dd462b772c1a80d2"
+            ]
+        ]
+    },
+    {
+        "id": "ea5b74ea2789b8a1",
+        "type": "http-inst-out",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 530,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "e624cb5c03d24d71",
+        "type": "http-inst-in",
+        "z": "e1a9c209688164c1",
+        "name": "",
+        "server": "4f8138c115d0674c",
+        "url": "post",
+        "method": "post",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 180,
+        "wires": [
+            [
+                "3112edb7774fd1b7",
+                "026e0bc4b43aa346",
+                "1fe763ca0a7b1b5d"
+            ]
+        ]
+    },
+    {
+        "id": "997a5b6596b22a90",
+        "type": "ui_template",
+        "z": "221d678213c3b932",
+        "group": "a72b3085981df97f",
+        "name": "",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n\nui-card-panel{\n\n    box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;\n}\n\n\n\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "className": "",
+        "x": 700,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    }
+]

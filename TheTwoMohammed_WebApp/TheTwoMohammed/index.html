@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature and Humidity Data</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="50134-unical-2.png" alt="University of Calabria Logo" id="unical-logo">
+    </header>
+
+    <main>
+        <h1>Temperature and Humidity Data</h1>
+
+        <div id="data-container">
+            <div id="temperature-container" class="data-box">
+                <h2>Temperature</h2>
+                <div class="temp-frame">
+                    <div class="temp-data">Current Temperature: <span id="currentTemp">--</span>°C</div>
+                </div>
+                <div class="temp-frame">
+                    <div class="temp-data">Maximum Temperature: <span id="maxTemp">--</span>°C</div>
+                </div>
+                <div class="temp-frame">
+                    <div class="temp-data">Minimum Temperature: <span id="minTemp">--</span>°C</div>
+                </div>
+                <div class="temp-frame">
+                    <div class="temp-data">Notification Threshold: <span id="notthreshold">--</span>°C</div>
+                </div>
+            </div>
+
+            <div id="humidity-container" class="data-box">
+                <h2>Humidity</h2>
+                <div class="temp-frame">
+                    <div class="temp-data">Current Humidity: <span id="currentHumidity">--</span>%</div>
+                </div>
+                <div class="temp-frame">
+                    <div class="temp-data">Maximum Humidity: <span id="maxHumidity">--</span>%</div>
+                </div>
+                <div class="temp-frame">
+                    <div class="temp-data">Minimum Humidity: <span id="minHumidity">--</span>%</div>
+                </div>
+                <div class="temp-frame">
+                    <div class="temp-data">Notification Threshold: <span id="humidityThreshold">--</span>%</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="notification">
+            <h2>Notification Status</h2>
+            <div class="temp-data"><span id="ennot">--</span></div>
+        </div>
+
+        <div id="loading">Loading data...</div>
+        <div class="notice">
+            <p>Changing the Thresholds Values, Click the button below</p>
+            <button class="styled-button" onclick="redirectToPostValues()">Update Threshold Values</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>Mohammed Alramadan: 242344</p>
+        <p>Mohammed Ali: 249355</p>
+        <p>Supervisor: Prof. Claudio Savaglio</p>
+        <p>Course: Distributed Systems and Cloud/Edge Computing</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+

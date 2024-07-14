@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Values</title>
+    <link rel="stylesheet" href="post-values-styles1.css">
+</head>
+<body>
+    <header>
+        <!--img src="50134-unical-2.png" alt="University of Calabria Logo" id="unical-logo"-->
+
+        <h1>Update Threshoulds</h1>
+    </header>
+    <main>
+        <form id="postForm">
+            <label for="value1">Temperature Threshold:</label>
+            <input type="number" id="value1" name="value1" required>
+            <button type="button" onclick="submitValue('value1')">Update Temp</button>
+            <br><br>
+
+            <label for="value2">Humidity Threshould:</label>
+            <input type="number" id="value2" name="value2" required>
+            <button type="button" onclick="submitValue('value2')">Update Hum</button>
+            <br><br>
+            <div>
+            <label for="switch">Activiate or Deactivate Notification:</label>
+            </div><div><label class="switch">
+                <input type="checkbox" id="switch" name="switch">
+                <span class="slider round"></span>
+            </label></div>
+            <!-- <button type="button" onclick="submitSwitch()">Submit Switch</button>-->
+            <br><br>
+        </form>
+        <div id="response"></div>
+
+
+                <div class="notice">
+            <p>Return to the main page, Click the button below</p>
+            <button class="styled-button" onclick="redirectToMain()">Home Page</button>
+        </div>
+
+    </main>
+    <footer>
+<img src="50134-unical-2.png" alt="University of Calabria Logo" id="unical-logo">
+    </footer>
+    <script src="post-script.js"></script>
+</body>
+</html>

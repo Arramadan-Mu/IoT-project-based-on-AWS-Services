@@ -1,0 +1,13 @@
+customHeaders:
+  - pattern: "**"
+    headers:
+      - key: Access-Control-Allow-Origin
+        value: "*"
+      - key: Access-Control-Allow-Methods
+        value: PUT, POST, DELETE, GET
+      - key: Access-Control-Allow-Headers
+        value: "*"
+      - key: Access-Control-Expose-Headers
+        value: x-amz-server-side-encryption, x-amz-request-id, x-amz-id-2
+      - key: Access-Control-Max-Age
+        value: "3000"

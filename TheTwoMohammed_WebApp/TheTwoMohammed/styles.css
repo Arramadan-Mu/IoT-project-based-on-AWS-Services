@@ -1,0 +1,188 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    color: #fff;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+header {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#unical-logo {
+    max-width: 300px;
+    height: auto;
+}
+
+h1 {
+    margin-bottom: 15px;
+    font-size: 1.5em; /* Reduce font size */
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Prevent overflow */
+}
+
+#data-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.data-box {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    max-width: 300px; /* Reduce max-width */
+}
+
+.notice {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+margin-top: 20px;
+
+}
+
+.notice p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+.styled-button {
+    background-color: #9b59b6;
+
+    border: none;
+    border-radius: 5px;
+    color: #333;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.styled-button:hover {
+    background-color: #71b7e6;
+    transform: scale(1.05);
+}
+.temp-frame {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.temp-data {
+    font-size: 1.2em; /* Reduce font size */
+    margin: 5px 0;
+}
+
+#notification {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    max-width: 500px; /* Reduce max-width */
+}
+
+#loading {
+    font-size: 1em; /* Reduce font size */
+}
+
+
+
+
+
+.styled-button:hover {
+    background-color: #71b7e6;
+    transform: scale(1.05);
+}
+.temp-frame {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.temp-data {
+    font-size: 1.2em; /* Reduce font size */
+    margin: 5px 0;
+}
+
+#notification {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    max-width: 500px; /* Reduce max-width */
+}
+
+#loading {
+    font-size: 1em; /* Reduce font size */
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+footer {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.5em; /* Increased font size */
+    color: #fff;
+    /*background-color: #333;*/ /* Dark background */
+    padding: 20px; /* Add padding for spacing */
+   font-family: 'Arial', sans-serif;
+}
+
+/* Style for the footer text */
+footer p {
+    margin: 8px 0; /* Add margin for spacing between paragraphs */
+}
+
+/* Style for the footer links */
+footer a {
+    color: #fff; /* White color for links */
+    text-decoration: none; /* Remove underline */
+    margin: 0 10px; /* Add margin for spacing between links */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+/* Hover effect for footer links */
+footer a:hover {
+    color: #ffcc00; /* Change color on hover */
+}
+
+
+
+
+
+
+
+
+

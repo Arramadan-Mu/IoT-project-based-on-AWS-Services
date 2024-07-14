@@ -1,0 +1,49 @@
+import subprocess
+import socket
+import os
+
+def run_command(command):
+    try:
+        subprocess.run(command, check=True, shell=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Error executing command: {e}")
+        exit(1)
+
+def get_ip_address():
+    try:
+        # Assuming the IP is known, returning it directly.
+        # You can replace this with logic to dynamically fetch the IP if needed.
+        return "16.16.70.116"
+    except Exception as e:
+        print(f"Error retrieving IP address: {e}")
+        return None
+
+def generate_certificates():
+    # Generate CA key
+    run_command("openssl ecparam -name prime256v1 -genkey -noout -out ca.key")
+
+    # Generate CA certificate
+    run_command("openssl req -new -x509 -sha256 -days 365 -key ca.key -out ca.crt -subj '/C=US/ST=State/L=City/O=Organization/CN=CA'")
+
+    # Get IP address for the server
+    ip_address = get_ip_address()
+    if ip_address:
+        print(f"Using IP address: {ip_address}")
+
+        # Generate server key
+        run_command("openssl ecparam -name prime256v1 -genkey -noout -out server.key")
+
+        # Generate server certificate signing request
+        run_command(f"openssl req -new -sha256 -key server.key -out server.csr -subj '/C=US/ST=State/L=City/O=Organization/CN={ip_address}'")
+
+        # Sign the server certificate
+        run_command("openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 1000 -sha256")
+
+        # Optionally convert certificates to PEM format (if needed by your server setup)
+        run_command("openssl x509 -in ca.crt -out ca_cert.pem -outform PEM")
+        run_command("openssl x509 -in server.crt -out server_cert.pem -outform PEM")
+
+        print("Certificates generated successfully.")
+
+if __name__ == "__main__":
+    generate_certificates()
